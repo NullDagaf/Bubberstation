@@ -506,7 +506,11 @@
 			var/datum/species/human_species = human_mob.dna?.species
 			if(human_species)
 				human_species.randomize_features(human_mob)
+//BUBBER EDIT START
+/*
 				human_species.randomize_active_underwear(human_mob)
+*/
+//BUBBER EDIT END
 
 			owner.remove_status_effect(/datum/status_effect/eigenstasium)
 

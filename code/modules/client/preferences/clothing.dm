@@ -1,3 +1,5 @@
+//BUBBER EDIT START - MOVED TO MODULAR
+/*
 /proc/generate_values_for_underwear(list/accessory_list, list/icons, color, icon_offset) //SKYRAT EDIT CHANGE - Colorable Undershirt/Socks
 	var/icon/lower_half = icon('icons/blanks/32x32.dmi', "nothing")
 
@@ -23,6 +25,8 @@
 		values[accessory_name] = icon_with_socks
 
 	return values
+*/
+//BUBBER EDIT END
 
 /// Backpack preference
 /datum/preference/choiced/backpack

@@ -206,6 +206,23 @@ const SLOTS: Record<
     gridSpot: getGridSpotKey([4, 5]),
     image: 'inventory-pocket.png',
   },
+  //BUBBER EDIT START
+  underwear: {
+    displayName: 'underwear',
+    gridSpot: getGridSpotKey([2, 0]),
+    image: 'inventory-underwear.png',
+  },
+  undershirt: {
+    displayName: 'shirt',
+    gridSpot: getGridSpotKey([0, 0]),
+    image: 'inventory-undershirt.png',
+  },
+  socks: {
+    displayName: 'socks',
+    gridSpot: getGridSpotKey([1, 0]),
+    image: 'inventory-socks.png',
+  },
+  //BUBBER EDIT END
   // SKYRAT EDIT ADDITION
   vagina: {
     displayName: 'vagina',

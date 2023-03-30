@@ -1,3 +1,5 @@
+//BUBBER EDIT START - MOVED TO MODULAR
+/*
 //THIS FILE HAS BEEN EDITED BY SKYRAT EDIT
 
 /obj/structure/dresser//SKYRAT EDIT - ICON OVERRIDEN BY AESTHETICS - SEE MODULE
@@ -72,3 +74,4 @@
 
 	add_fingerprint(dressing_human)
 	dressing_human.update_body()
+*/

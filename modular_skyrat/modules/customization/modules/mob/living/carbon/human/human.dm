@@ -71,6 +71,8 @@
 /mob/living/carbon/human/species/skrell
 	race = /datum/species/skrell
 
+//BUBBER EDIT START
+/* btw the only reason underwear_visibility isn't removed altogether is because char setup previewing. i hate it too
 /mob/living/carbon/human/verb/toggle_undies()
 	set category = "IC"
 	set name = "Toggle underwear visibility"
@@ -100,6 +102,8 @@
 				underwear_visibility = UNDERWEAR_HIDE_UNDIES | UNDERWEAR_HIDE_SHIRT | UNDERWEAR_HIDE_SOCKS
 		update_body()
 	return
+*/
+//BUBBER EDIT END
 
 /mob/living/carbon/human/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	. = ..()

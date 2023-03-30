@@ -7,6 +7,8 @@
 	///Where the genital is on the body. If clothing doesn't cover it, it shows up!
 	var/genital_location = GROIN
 
+//BUBBER EDIT START - MOVED TO MODULAR
+/*
 /datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob, obj/item/bodypart/head)
 	var/obj/item/organ/external/genital/badonkers = target_mob.getorganslot(associated_organ_slot)
 	if(!badonkers)
@@ -49,6 +51,8 @@
 		//If not always shown or hidden by clothes, then it defaults to always hidden
 		else
 			return TRUE
+*/
+//BUBBER EDIT END
 
 /datum/sprite_accessory/genital/get_special_render_state(mob/living/carbon/human/human)
 	var/obj/item/organ/external/genital/genital = human.getorganslot(associated_organ_slot)

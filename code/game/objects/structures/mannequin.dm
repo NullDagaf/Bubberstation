@@ -39,6 +39,11 @@
 		ITEM_SLOT_OCLOTHING,
 		ITEM_SLOT_GLOVES,
 		ITEM_SLOT_FEET,
+//BUBBER EDIT START
+		ITEM_SLOT_UNDERWEAR,
+		ITEM_SLOT_SHIRT,
+		ITEM_SLOT_SOCKS,
+//BUBBER EDIT END
 	)
 	/// Assoc list of all item slots (turned to strings) to the items they hold.
 	var/list/worn_items = list()
@@ -84,6 +89,8 @@
 	var/mutable_appearance/pedestal = mutable_appearance(icon, "pedestal_[material]")
 	pedestal.pixel_y = -3
 	. += pedestal
+//BUBBER EDIT START
+/*
 	var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[underwear_name]
 	if(underwear)
 		if(body_type == FEMALE && underwear.gender == MALE)
@@ -99,6 +106,9 @@
 	var/datum/sprite_accessory/socks/socks = GLOB.socks_list[socks_name]
 	if(socks)
 		. += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
+*/
+//BUBBER EDIT END
+
 	for(var/slot_flag in worn_items)
 		var/obj/item/worn_item = worn_items[slot_flag]
 		if(!worn_item)
@@ -146,8 +156,21 @@
 			if(ITEM_SLOT_FEET)
 				default_layer = SHOES_LAYER
 				default_icon = DEFAULT_SHOES_FILE
+//BUBBER EDIT START
+			if(ITEM_SLOT_UNDERWEAR)
+				default_layer = BODY_LAYER
+				default_icon = 'modular_zubbers/icons/mob/clothing/underwear.dmi'
+			if(ITEM_SLOT_SHIRT)
+				default_layer = ABOVE_BODY_LAYER
+				default_icon = 'modular_zubbers/icons/mob/clothing/shirt.dmi'
+			if(ITEM_SLOT_SOCKS)
+				default_layer = BODY_LAYER
+				default_icon = 'modular_zubbers/icons/mob/clothing/socks.dmi'
+//BUBBER EDIT END
 		. += worn_item.build_worn_icon(default_layer, default_icon, female_uniform = female_icon)
 
+//BUBBER EDIT START
+/*
 /obj/structure/mannequin/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
 	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
@@ -169,6 +192,8 @@
 			if(new_socks)
 				socks_name = new_socks
 	update_appearance()
+*/
+//BUBBER EDIT END
 
 /obj/structure/mannequin/wood
 	material = MANNEQUIN_WOOD

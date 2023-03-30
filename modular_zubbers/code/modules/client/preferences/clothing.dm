@@ -1,5 +1,29 @@
-//BUBBER EDIT START - MOVED TO MODULAR
-/*
+/proc/generate_values_for_underwear(list/accessory_list, list/icons, color, icon_offset) //SKYRAT EDIT CHANGE - Colorable Undershirt/Socks
+	var/icon/lower_half = icon('icons/blanks/32x32.dmi', "nothing")
+
+	for (var/icon in icons)
+		lower_half.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', icon), ICON_OVERLAY)
+
+	var/list/values = list()
+
+	for (var/accessory_name in accessory_list)
+		var/icon/icon_with_socks = new(lower_half)
+		var/datum/sprite_accessory/accessory = accessory_list[accessory_name]
+		//SKYRAT EDIT CHANGE
+		if (accessory_name != "Nude" && accessory)
+			var/icon/accessory_icon = icon(accessory.icon, accessory.icon_state)
+		//SKYRAT EDIT CHANGE END
+			if (color && !accessory.use_static)
+				accessory_icon.Blend(color, ICON_MULTIPLY)
+			icon_with_socks.Blend(accessory_icon, ICON_OVERLAY)
+		icon_with_socks.Crop(10, 1+icon_offset, 22, 13+icon_offset)	//SKYRAT EDIT CHANGE - Colorable Undershirt/Socks
+
+		icon_with_socks.Scale(32, 32)
+
+		values[accessory_name] = icon_with_socks
+
+	return values
+
 /datum/preference/choiced/socks/init_possible_values()
 	return generate_values_for_underwear(GLOB.socks_list, list("human_r_leg", "human_l_leg"), COLOR_ALMOST_BLACK, 0)
 
@@ -46,4 +70,3 @@
 	var/species_type = preferences.read_preference(/datum/preference/choiced/species)
 	var/datum/species/species = new species_type
 	return !(NO_UNDERWEAR in species.species_traits)
-*/

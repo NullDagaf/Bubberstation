@@ -824,6 +824,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return "FRONT_OVER"
 		//SKYRAT EDIT ADDITION END
 
+//BUBBER EDIT START
+/*
 ///Proc that will randomise the underwear (i.e. top, pants and socks) of a species' associated mob,
 /// but will not update the body right away.
 /datum/species/proc/randomize_active_underwear_only(mob/living/carbon/human/human_mob)
@@ -835,6 +837,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/randomize_active_underwear(mob/living/carbon/human/human_mob)
 	randomize_active_underwear_only(human_mob)
 	human_mob.update_body()
+*/
+//BUBBER EDIT END
 
 ///Proc that will randomize all the external organs (i.e. horns, frills, tails etc.) of a species' associated mob
 /datum/species/proc/randomize_external_organs(mob/living/carbon/human/human_mob)

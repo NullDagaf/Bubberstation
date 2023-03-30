@@ -644,19 +644,25 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 39 // SKYRAT EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 33
+#define TOTAL_LAYERS 40 // SKYRAT EDIT CHANGE - ORIGINAL: #define TOTAL_LAYERS 33
 
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 39 // SKYRAT EDIT CHANGE - ORIGINAL: 33
+#define MUTATIONS_LAYER 40 // SKYRAT EDIT CHANGE - ORIGINAL: 33
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 38 // SKYRAT EDIT CHANGE - ORIGINAL: 32
+#define BODY_BEHIND_LAYER 39 // SKYRAT EDIT CHANGE - ORIGINAL: 32
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 37 // SKYRAT EDIT CHANGE - ORIGINAL: 31
+#define BODYPARTS_LOW_LAYER 38 // SKYRAT EDIT CHANGE - ORIGINAL: 31
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 36 // SKYRAT EDIT CHANGE - ORIGINAL: 30
+#define BODYPARTS_LAYER 37 // SKYRAT EDIT CHANGE - ORIGINAL: 30
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 35 // SKYRAT EDIT CHANGE - ORIGINAL: 29
-/// Underwear, undershirts, socks, eyes, lips(makeup)
+#define BODY_ADJ_LAYER 36 // SKYRAT EDIT CHANGE - ORIGINAL: 29
+/// undershirts
+#define SHIRT_LAYER 37
+/// underwear
+#define UNDERWEAR_LAYER 36
+/// socks
+#define SOCKS_LAYER 35
+/// eyes, lips(makeup)
 #define BODY_LAYER 34 // SKYRAT EDIT CHANGE - ORIGINAL: 28
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
 #define FRONT_MUTATIONS_LAYER 33 // SKYRAT EDIT CHANGE - ORIGINAL: 27

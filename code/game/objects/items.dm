@@ -889,6 +889,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		owner.update_worn_back()
 	if(flags & ITEM_SLOT_NECK)
 		owner.update_worn_neck()
+//BUBBER EDIT START
+	if(flags & ITEM_SLOT_UNDERWEAR)
+		owner.update_worn_underwear()
+	if(flags & ITEM_SLOT_SHIRT)
+		owner.update_worn_shirt()
+	if(flags & ITEM_SLOT_SOCKS)
+		owner.update_worn_socks()
+//BUBBER EDIT END
 
 ///Returns the temperature of src. If you want to know if an item is hot use this proc.
 /obj/item/proc/get_temperature()
@@ -1594,6 +1602,15 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			return (zone == BODY_ZONE_PRECISE_EYES)
 		if(ITEM_SLOT_FEET)
 			return (zone == BODY_ZONE_L_LEG || zone == BODY_ZONE_R_LEG)
+//BUBBER EDIT START
+		if(ITEM_SLOT_UNDERWEAR)
+			return (zone == BODY_ZONE_PRECISE_GROIN)
+		if(ITEM_SLOT_SHIRT)
+			return (zone == BODY_ZONE_CHEST)
+		if(ITEM_SLOT_SOCKS)
+			return (zone == BODY_ZONE_L_LEG || zone == BODY_ZONE_R_LEG)
+//BUBBER EDIT END
+
 	return FALSE
 
 /**

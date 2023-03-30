@@ -82,6 +82,11 @@
 		wear_id,
 		l_store,
 		r_store,
+//BUBBER EDIT START
+		underwear,
+		undershirt,
+		socks,
+//BUBBER EDIT END
 		w_uniform
 		)
 
@@ -185,6 +190,23 @@
 				return
 			s_store = I
 			update_suit_storage()
+//BUBBER EDIT START
+		if(ITEM_SLOT_UNDERWEAR)
+			if(underwear)
+				return
+			underwear = I
+			update_worn_underwear()
+		if(ITEM_SLOT_SHIRT)
+			if(undershirt)
+				return
+			undershirt = I
+			update_worn_shirt()
+		if(ITEM_SLOT_SOCKS)
+			if(socks)
+				return
+			socks = I
+			update_worn_socks()
+//BUBBER EDIT END
 
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))

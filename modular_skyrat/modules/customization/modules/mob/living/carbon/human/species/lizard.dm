@@ -21,6 +21,8 @@
 	)
 	payday_modifier = 0.75
 
+//BUBBER EDIT START - MOVED TO MODULAR
+/*
 /datum/species/lizard/randomize_features(mob/living/carbon/human/human_mob)
 	var/main_color = "#[random_color()]"
 	var/second_color
@@ -39,6 +41,8 @@
 	human_mob.dna.features["mcolor"] = main_color
 	human_mob.dna.features["mcolor2"] = second_color
 	human_mob.dna.features["mcolor3"] = third_color
+*/
+//BUBBER EDIT END
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard, lizard_color = "#009999")
 	lizard.dna.features["mcolor"] = lizard_color

@@ -43,10 +43,12 @@
 	var/age = 30 //Player's age
 
 	//consider updating /mob/living/carbon/human/copy_clothing_prefs() if adding more of these
-	var/underwear = "Nude" //Which underwear the player wants
+//BUBBER EDIT START
+	var/obj/item/underwear = null
+	var/obj/item/undershirt = null
+	var/obj/item/socks = null
 	var/underwear_color = "#000000"
-	var/undershirt = "Nude" //Which undershirt the player wants
-	var/socks = "Nude" //Which socks the player wants
+//BUBBER EDIT END
 	var/backpack = DBACKPACK //Which backpack type the player has chosen.
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
 

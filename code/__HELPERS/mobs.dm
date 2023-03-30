@@ -28,6 +28,8 @@
 		else
 			return "#000000"
 
+//BUBBER EDIT START
+/*
 /proc/random_underwear(gender)
 	if(!GLOB.underwear_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
@@ -54,6 +56,8 @@
 	if(!GLOB.socks_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
 	return pick(GLOB.socks_list)
+*/
+//BUBBER EDIT END
 
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)

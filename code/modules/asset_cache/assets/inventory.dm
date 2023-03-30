@@ -17,4 +17,9 @@
 		"inventory-back.png" = 'icons/ui_icons/inventory/back.png',
 		"inventory-pocket.png" = 'icons/ui_icons/inventory/pocket.png',
 		"inventory-collar.png" = 'icons/ui_icons/inventory/collar.png',
+//BUBBER EDIT START
+		"inventory-underwear.png" = 'modular_zubbers/icons/ui_icons/inventory/underwear.png',
+		"inventory-socks.png" = 'modular_zubbers/icons/ui_icons/inventory/socks.png',
+		"inventory-undershirt.png" = 'modular_zubbers/icons/ui_icons/inventory/undershirt.png',
+//BUBBER EDIT END
 	)

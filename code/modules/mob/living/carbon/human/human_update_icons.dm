@@ -64,6 +64,11 @@ There are several things that need to be remembered:
 		update_worn_oversuit()
 		update_pockets()
 		update_worn_neck()
+//BUBBER EDIT START
+		update_worn_underwear()
+		update_worn_shirt()
+		update_worn_socks()
+//BUBBER EDIT END
 		update_transform()
 		//mutations
 		update_mutations_overlay()

@@ -1082,6 +1082,8 @@
 // Underwear Definitions //
 ///////////////////////////
 
+//BUBBER EDIT START - MOVED TO MODULAR
+/*
 /datum/sprite_accessory/underwear
 	icon = 'icons/mob/clothing/underwear.dmi'
 	use_static = FALSE
@@ -1710,6 +1712,8 @@
 /datum/sprite_accessory/socks/thocks
 	name = "Thocks"
 	icon_state = "thocks"
+*/
+//BUBBER EDIT END
 
 //////////.//////////////////
 // MutantParts Definitions //
@@ -2220,7 +2224,7 @@
 /datum/sprite_accessory/moth_wings/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
-	
+
 /datum/sprite_accessory/moth_wings/moffra
 	name = "Moffra"
 	icon_state = "moffra"
@@ -2307,7 +2311,7 @@
 /datum/sprite_accessory/moth_antennae/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
-	
+
 /datum/sprite_accessory/moth_antennae/moffra
 	name = "Moffra"
 	icon_state = "moffra"

@@ -27,7 +27,11 @@
 	human.eye_color_right = random_eye_color
 	human.dna.blood_type = random_blood_type()
 	human.dna.features["mcolor"] = "#[random_color()]"
+//BUBBER EDIT START
+/*
 	human.dna.species.randomize_active_underwear_only(human)
+*/
+//BUBBER EDIT END
 	/*SKYRAT EDIT OLD
 	for(var/datum/species/species_path as anything in subtypesof(/datum/species))
 		var/datum/species/new_species = new species_path
