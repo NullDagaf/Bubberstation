@@ -6,11 +6,36 @@
 		inv.update_icon()
 
 	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-		var/obj/item/worn_item = underwear
-		var/mutable_appearance/
+		var/obj/item/worn_item_state = underwear.icon_state
+		var/mutable_appearance/underwear_overlay
+		update_hud_underwear()
+
+				var/icon_state = underwear.icon_state
+				if(underwear.has_digitigrade && (bodytype & BODYTYPE_DIGITIGRADE))
+					icon_state += "_d"
+				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -BODY_LAYER)
+				underwear_overlay.color = species_human.underwear_color
+				standing += underwear_overlay
 	apply_overlay(UNDERWEAR_LAYER)
 
 
+/mob/living/carbon/human/proc/update_hud_underwear(obj/item/worn_item)
+	worn_item.screen_loc = UI_LOC_UNDERWEAR
+	if((client && hud_used?.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item)
+
+/mob/living/carbon/human/proc/update_hud_shirt(obj/item/worn_item)
+	worn_item.screen_loc = UI_LOC_UNDERWEAR
+	if((client && hud_used?.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item)
+
+/mob/living/carbon/human/proc/update_hud_socks(obj/item/worn_item)
+	worn_item.screen_loc = UI_LOC_UNDERWEAR
+	if((client && hud_used?.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item)
 
 /mob/living/carbon/human/update_worn_back()
 	remove_overlay(BACK_LAYER)
