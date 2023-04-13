@@ -26,13 +26,13 @@
 	update_observer_view(worn_item)
 
 /mob/living/carbon/human/proc/update_hud_shirt(obj/item/worn_item)
-	worn_item.screen_loc = UI_LOC_UNDERWEAR
+	worn_item.screen_loc = UI_LOC_SHIRT
 	if((client && hud_used?.hud_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item)
 
 /mob/living/carbon/human/proc/update_hud_socks(obj/item/worn_item)
-	worn_item.screen_loc = UI_LOC_UNDERWEAR
+	worn_item.screen_loc = UI_LOC_SOCKS
 	if((client && hud_used?.hud_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item)
