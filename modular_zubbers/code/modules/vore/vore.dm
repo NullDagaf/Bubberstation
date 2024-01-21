@@ -22,7 +22,7 @@
 	var/stomach_count = length(stomachs)
 	if(!stomach_count) //nothing preexisting, can assign directly
 		for(var/index in 1 to length(vore_template.stomach_descs))
-			var/datum/vore_stomach/new_stomach = new
+			var/datum/vore_stomach/new_stomach = create_stomach()
 			new_stomach.enter_desc_owner = vore_template.stomach_descs_owner[index]
 			new_stomach.enter_desc_prey = vore_template.stomach_descs_prey[index]
 
@@ -34,11 +34,30 @@
 			new_stomach.enter_desc_owner = vore_template.stomach_descs_owner[index]
 			new_stomach.enter_desc_prey = vore_template.stomach_descs_prey[index]
 
-			if(index <= stomach_count)
-				#error finish
-				//for()
-				stomachs[] += new_stomach
+			new_stomachs += new_stomach
+			if(index > stomach_count)
+				continue
 
+			var/datum/vore_stomach/old_stomach = stomachs[index]
+			for(var/mob/living/transfered as anything in old_stomach.contents)
+				old_stomach.exit_stomach(transfered, new_stomach, forced = TRUE)
+
+			qdel(old_stomach)
+
+		stomachs.Cut()
+		stomachs = new_stomachs
+
+
+/datum/vore_handler/proc/create_stomach()
+	var/datum/vore_stomach/stomach = new
+	RegisterSignal(stomach, COMSIG_QDELETING, PROC_REF(on_stomach_qdel))
+	return stomach
+
+/datum/vore_handler/proc/on_stomach_qdel(datum/vore_stomach/source, force)
+	SIGNAL_HANDLER
+
+	// ejecting handled by stomach qdel
+	stomachs -= source
 
 /datum/vore_handler/proc/set_template_from_prefs(datum/preferences/prefs)
 	ASSERT(istype(prefs))

@@ -35,7 +35,7 @@
 
 	qdel(src)
 
-/datum/vore_stomach/proc/on_entry(mob/living/food)
+/datum/vore_stomach/proc/enter_stomach(mob/living/food)
 	SHOULD_CALL_PARENT(TRUE)
 	ASSERT(istype(food))
 
@@ -59,7 +59,7 @@
 		SEND_SOUND(food, enter_sound)
 
 
-/datum/vore_stomach/proc/on_exit(mob/living/food, datum/vore_stomach/new_stomach = null)
+/datum/vore_stomach/proc/exit_stomach(mob/living/food, datum/vore_stomach/new_stomach = null)
 	SHOULD_CALL_PARENT(TRUE)
 	ASSERT(istype(food))
 
@@ -73,17 +73,37 @@
 
 	LAZYREMOVE(contents, food)
 
+	if(new_stomach)
+		new_stomach.enter_stomach(food)
+
 /datum/vore_stomach/proc/eject_contents()
 	for(var/mob/living/survivor as anything in contents)
-		on_exit(food)
+		exit_stomach(survivor)
 
 
 
 /datum/vore_stomach/process(seconds_per_tick)
+	var/mob/living/transfered = null
+
 	//this could be handled with a fn pointer, some subtype fuckery or whatever else
 	switch(type) //but we realistically will never get to that point of complexity so who cares
 		if(VORE_TYPE_DIGEST)
-			for(var/mob/living/occupant as anything in contents)
-				/// do stuff i guess
+			if(SPT_PROB(80, seconds_per_tick))
+				return
 
+			var/damage = (acid_strength / 3) * 5 * seconds_per_tick // 3 acid_damage (player mobs) == 5 dmg per proc
 
+			for(var/mob/living/occupant as anything in shuffle(contents))
+				occupant.apply_damage(damage, BURN)
+				if(occupant.get_total_damage() >= transfer_threshold)
+					transfered = occupant
+
+	if(isnull(transfered))
+		return
+
+	var/list/stomachs = owner.vore_handler.stomachs
+	var/our_index = stomachs.Find(src)
+	if(our_index >= length(stomachs))
+		return //end of the line
+
+	exit_stomach(transfered, stomachs[our_index + 1])
