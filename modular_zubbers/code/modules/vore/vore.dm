@@ -12,7 +12,7 @@
 
 	if(owner.ckey)
 		var/datum/preferences/prefs = GLOB.preferences_datums[owner.ckey]
-		vore_template = prefs.read_preference(/datum/preference/vore_stomachs)
+		vore_template = prefs.vore_template //cant wait for all the weird harddels this will cause
 	else
 		vore_template = GLOB.vore_templates[template]
 
@@ -21,7 +21,7 @@
 /datum/vore_handler/proc/refresh_template()
 	var/stomach_count = length(stomachs)
 	if(!stomach_count) //nothing preexisting, can assign directly
-		for(var/index in 1 to length(vore_template.stomach_descs))
+		for(var/index in 1 to length(vore_template.stomach_descs_owner))
 			var/datum/vore_stomach/new_stomach = create_stomach()
 			new_stomach.enter_desc_owner = vore_template.stomach_descs_owner[index]
 			new_stomach.enter_desc_prey = vore_template.stomach_descs_prey[index]
@@ -29,8 +29,8 @@
 			stomachs += new_stomach
 	else
 		var/list/new_stomachs = list()
-		for(var/index in 1 to length(vore_template.stomach_descs))
-			var/datum/vore_stomach/new_stomach = new
+		for(var/index in 1 to length(vore_template.stomach_descs_owner))
+			var/datum/vore_stomach/new_stomach = create_stomach()
 			new_stomach.enter_desc_owner = vore_template.stomach_descs_owner[index]
 			new_stomach.enter_desc_prey = vore_template.stomach_descs_prey[index]
 
@@ -59,8 +59,3 @@
 	// ejecting handled by stomach qdel
 	stomachs -= source
 
-/datum/vore_handler/proc/set_template_from_prefs(datum/preferences/prefs)
-	ASSERT(istype(prefs))
-
-	var/datum/vore_template/template = new
-	var/list/stomach_amount = prefs.read_preference(/datum/)

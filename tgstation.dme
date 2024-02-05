@@ -637,6 +637,7 @@
 #include "code\_globalvars\lists\reagents.dm"
 #include "code\_globalvars\lists\rtd.dm"
 #include "code\_globalvars\lists\typecache.dm"
+#include "code\_globalvars\lists\vore.dm"
 #include "code\_globalvars\lists\wiremod.dm"
 #include "code\_globalvars\lists\xenobiology.dm"
 #include "code\_globalvars\traits\_traits.dm"
