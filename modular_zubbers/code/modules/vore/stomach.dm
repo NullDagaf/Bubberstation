@@ -117,8 +117,6 @@
 				if(occupant.nutrition <= NUTRITION_LEVEL_STARVING)
 					occupant.dust()
 
-
-
 	if(isnull(transfered))
 		return // no one to move
 
